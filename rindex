@@ -1,13 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-//import { App } from './components/app'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+
+import { App } from './components/app'
+import { reducers } from './reducers'
+
+// This hooks between the response from an action
+// and the handling of the cooresponding reducer
+// and if the payload has a value of a promise
+// it will stop the initial action and when the
+// promise finishes it will send a new action
+// to the reducer with the promise response
+import ReduxPromise from 'redux-promise'
+
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
 
 ReactDOM.render(
   React.createElement(
-    //App,
-    {}
+    Provider,
+    {
+      store: createStoreWithMiddleware(reducers)
+    },
+    React.createElement(
+      App,
+      {}
+    )
   ),
   document.getElementById('container')
 )
-# cursor: 12 del
+# cursor: 32 del

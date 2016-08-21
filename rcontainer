@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+//import { selectThing } from '../actions/select_thing'
 
 class ContainerName extends Component {
 
@@ -25,6 +27,8 @@ class ContainerName extends Component {
 
 }
 
+// mapStateToProps could be removed if we didn't need
+// local props populated from a redux reducer
 function mapStateToProps(state) {
   return {
     uniqueField: state.uniqueField,
@@ -32,5 +36,12 @@ function mapStateToProps(state) {
   }
 }
 
-export { connect(mapStateToProps)(PageDetail) }
-# cursor: 35 del
+// This allows us to call our action using this.props.selectThing
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators( { selectThing }, dispatch )
+}
+
+// mapStateToProps could be left as null if we didn't need
+// local props populated from a redux reducer
+export { connect(mapStateToProps, mapDispatchToProps)(PageDetail) }
+# cursor: 44 del

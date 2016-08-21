@@ -1,0 +1,18 @@
+//import axios from 'axios'
+
+const THING_SELECTED = 'THING_SELECTED'
+//const ROOT_URL = 'http://someapi.com/'
+
+const selectThing = function(thing) {
+  //const url = `${ROOT_URL}?key1=${thing}&key2=value2`
+  //const request = axios.get(url)
+
+  return {
+    type: THING_SELECTED,
+    // payload: request,
+    payload: thing,
+  }
+}
+
+export { selectThing, THING_SELECTED }
+# cursor: 10 del

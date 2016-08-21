@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-// import { ShowReducer } from 'someplace'
+// import { ThingReducer } from './reducer_thing'
 
 const RootReducer = combineReducers({
-  //showField: ShowReducer
+  //thing: ThingReducer
 })
 
 export { RootReducer }

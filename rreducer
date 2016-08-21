@@ -1,23 +1,16 @@
-import { Remote } from '../services/remote'
+import { THING_SELECTED } from '../actions/action_thing'
 
-const ReducerPages = function() {
-  return Remote.request({
-    url: 'http://jsonplaceholder.typicode.com/posts',
-    type: 'get'
-  }).then((response) => {
-    const pageData = response.data.map((record) => {
-      const firstWord = record.title.split(" ")[0].toLowerCase()
-      const slug = `${firstWord}-${record.id}`
-      return {
-        key:     record.id,
-        slug:    slug,
-        title:   record.title,
-        content: record.body
-      }
-    })
-    return pageData
-  })
+const ReducerThing = function(state = null, action) {
+
+  switch(action.type) {
+  case THING_SELECTED:
+    return [ action.payload.data, ...state ]
+    // Same as action.payload.data.concat([state])
+  }
+
+  return state
+
 }
 
-export default ReducerPages
-# cursor: 22 del
+export { ReducerThing }
+# cursor: 12 del
