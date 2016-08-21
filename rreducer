@@ -1,0 +1,23 @@
+import { Remote } from '../services/remote'
+
+const ReducerPages = function() {
+  return Remote.request({
+    url: 'http://jsonplaceholder.typicode.com/posts',
+    type: 'get'
+  }).then((response) => {
+    const pageData = response.data.map((record) => {
+      const firstWord = record.title.split(" ")[0].toLowerCase()
+      const slug = `${firstWord}-${record.id}`
+      return {
+        key:     record.id,
+        slug:    slug,
+        title:   record.title,
+        content: record.body
+      }
+    })
+    return pageData
+  })
+}
+
+export default ReducerPages
+# cursor: 22 del

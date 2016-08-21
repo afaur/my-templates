@@ -1,0 +1,9 @@
+import { combineReducers } from 'redux'
+// import { ShowReducer } from 'someplace'
+
+const RootReducer = combineReducers({
+  //showField: ShowReducer
+})
+
+export { RootReducer }
+# cursor: 8 del

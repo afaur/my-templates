@@ -1,0 +1,36 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+class ContainerName extends Component {
+
+  renderList() {
+    return this.props.stateCollection.map((stateItem) => {
+      return React.createElement(
+        'li',
+        {
+          key: stateItem.uniqueField,
+        },
+        stateItem.showField
+      )
+    })
+  }
+
+  render() {
+    return React.createElement(
+      'ul',
+      {},
+      this.renderList()
+    )
+  }
+
+}
+
+function mapStateToProps(state) {
+  return {
+    uniqueField: state.uniqueField,
+    showField: state.showField,
+  }
+}
+
+export { connect(mapStateToProps)(PageDetail) }
+# cursor: 35 del

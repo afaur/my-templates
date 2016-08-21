@@ -1,0 +1,14 @@
+import React, { Component } from 'react'
+
+class ComponentName extends Component {
+
+  render() {
+    return React.createElement(
+      'div',
+      {}
+    )
+  }
+}
+
+export { ComponentName }
+# cursor: 13 del

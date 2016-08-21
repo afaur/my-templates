@@ -1,0 +1,48 @@
+import axios from 'axios'
+
+class Remote {
+
+  // Takes options.url and options.type and makes a remote call
+  // all other options are used as passed in params.
+  static request(options) {
+
+    // Specify valid url regex
+    const urlRegex = /^(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
+
+    // Specify valid option types
+    const types = ['get', 'post']
+
+    // Make sure options includes a valid url
+    if (!options.url || !urlRegex.test(options.url)) {
+      throw new Error(
+        'options.url required and must be a valid http or https url.'
+      )
+    }
+
+    // Make sure options includes a valid type
+    if (!options.type || types.indexOf(options.type) === -1) {
+      throw new Error(
+        'options.type required and must be either post or get.'
+      )
+    }
+
+    // Set type, and url from options
+    const type = options.type
+    const url  = options.url
+
+    // Remote type, and url from options
+    delete options.type
+    delete options.url
+
+    // Make type of request as specified with
+    // options passed in and returns a promise
+    return axios[type](
+      url, { params: options }
+    )
+
+  }
+
+}
+
+export { Remote }
+# cursor: 47 del
