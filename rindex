@@ -4,8 +4,11 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 
+import { Router, browserHistory } from 'react-router'
+
 import { App } from './components/app'
 import { reducers } from './reducers'
+import { routes } from './routes'
 
 // This hooks between the response from an action
 // and the handling of the cooresponding reducer
@@ -15,7 +18,9 @@ import { reducers } from './reducers'
 // to the reducer with the promise response
 import ReduxPromise from 'redux-promise'
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
+const createStoreWithMiddleware = applyMiddleware(
+  ReduxPromise
+)(createStore)
 
 ReactDOM.render(
   React.createElement(
@@ -24,10 +29,13 @@ ReactDOM.render(
       store: createStoreWithMiddleware(reducers)
     },
     React.createElement(
-      App,
-      {}
+      Router,
+      {
+        history: browserHistory,
+        routes: routes,
+      }
     )
   ),
   document.getElementById('container')
 )
-# cursor: 32 del
+# cursor: 40 del

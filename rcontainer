@@ -1,12 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-//import { selectThing } from '../actions/select_thing'
+
+//import {
+//  reducerThing, fetchThing,
+//} from '../actions/action_thing'
+
+// Clean markup without JSX
+const DOM = React.DOM, ul = DOM.ul, li = DOM.li
 
 class ContainerName extends Component {
 
+  //componentWillMount() {
+    // this.props.fetchThing()
+  //}
+
   renderList() {
     return this.props.stateCollection.map((stateItem) => {
+      return li(
+        {
+          key: stateItem.uniqueField,
+        },
+        stateItem.showField
+      )
+      /*
       return React.createElement(
         'li',
         {
@@ -14,15 +31,19 @@ class ContainerName extends Component {
         },
         stateItem.showField
       )
+      */
     })
   }
 
   render() {
+    return ul({ children: this.renderList() })
+    /*
     return React.createElement(
       'ul',
       {},
       this.renderList()
     )
+    */
   }
 
 }
@@ -38,10 +59,10 @@ function mapStateToProps(state) {
 
 // This allows us to call our action using this.props.selectThing
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators( { selectThing }, dispatch )
+  return bindActionCreators( { selectThing, fetchThing }, dispatch )
 }
 
 // mapStateToProps could be left as null if we didn't need
 // local props populated from a redux reducer
 export { connect(mapStateToProps, mapDispatchToProps)(PageDetail) }
-# cursor: 44 del
+# cursor: 67 del

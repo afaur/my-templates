@@ -1,18 +1,29 @@
 //import axios from 'axios'
+//const ROOT_URL = 'http://someapi.com/'
+//const API_KEY = 'abc123'
 
 const THING_SELECTED = 'THING_SELECTED'
-//const ROOT_URL = 'http://someapi.com/'
+const THING_FETCH = 'THING_FETCH'
 
 const selectThing = function(thing) {
-  //const url = `${ROOT_URL}?key1=${thing}&key2=value2`
-  //const request = axios.get(url)
-
   return {
     type: THING_SELECTED,
-    // payload: request,
     payload: thing,
   }
 }
 
-export { selectThing, THING_SELECTED }
-# cursor: 10 del
+const fetchThing = function(thing) {
+  //const url = `${ROOT_URL}?thing=${thing}&api_key=${API_KEY}`
+  //const request = axios.get(url)
+
+  return {
+    //type: THING_FETCH,
+    //payload: request,
+  }
+}
+
+export {
+  actionThing, fetchThing,
+  THING_SELECTED, THING_FETCH,
+}
+# cursor: 28 del

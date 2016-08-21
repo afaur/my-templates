@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 // import { ThingReducer } from './reducer_thing'
+// import { reducers as FormReducer } from 'redux-form'
 
 const RootReducer = combineReducers({
-  //thing: ThingReducer
+  //thing: ThingReducer,
+  //form: FormReducer,
 })
 
 export { RootReducer }
-# cursor: 8 del
+# cursor: 10 del

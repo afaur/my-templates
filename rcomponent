@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
 
-class ComponentName extends Component {
+// import { Link } from 'react-router'
+// <Link to: '/something' className: 'something'>title
 
+// Clean markup without JSX
+const DOM = React.DOM, div = DOM.div
+
+class ComponentName extends Component {
   render() {
+    return div()
+    /*
     return React.createElement(
       'div',
       {}
     )
+    */
   }
 }
 
 export { ComponentName }
-# cursor: 13 del
+# cursor: 21 del

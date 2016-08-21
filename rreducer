@@ -1,16 +1,25 @@
-import { THING_SELECTED } from '../actions/action_thing'
+const INITIAL_STATE = {
+  all: [],
+  one: null,
+}
 
-const ReducerThing = function(state = null, action) {
+import {
+  THING_SELECTED, THING_FETCH,
+} from '../actions/action_thing'
+
+const ReducerThing = function(state = INITIAL_STATE, action) {
 
   switch(action.type) {
-  case THING_SELECTED:
-    return [ action.payload.data, ...state ]
+  //case THING_SELECTED:
+    //return [ action.payload.data, ...state ]
     // Same as action.payload.data.concat([state])
+  case THING_FETCH:
+    return [ ...state, all: action.payload.data ]
+  case default:
+    return state
   }
-
-  return state
 
 }
 
 export { ReducerThing }
-# cursor: 12 del
+# cursor: 24 del
